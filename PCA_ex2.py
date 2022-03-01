@@ -29,6 +29,8 @@ np.random.shuffle(data)
 
 data_nB = data  #Data with student id, label, img
 
+
+#data_nB[:,2:] = PCA_utils.zeroCenter(data[:,2:])
 data_nB[:,2:] = stats.zscore(data[:,2:], axis=0)
 
 
@@ -40,6 +42,7 @@ pca_nB = PCA()
 # Fit the PCAs using the entire data set
 pca_nA.fit(data[:,2:])
 pca_nB.fit(data_nB[:,2:])
+
 
 
 ## Calculate cummulative variance ratios
@@ -61,7 +64,7 @@ for i in range(len(pca_nB_varRatio)):
         pca_nB_varRatioCum[i] = pca_nB_varRatioCum[i-1] + pca_nB_varRatio[i]
 
 
-# Perform KNN with cross validation
+# Perform KNN with cross validation with best parameters from ex1
 K = [1]
 pct = 0.8
 
