@@ -27,8 +27,10 @@ np.random.shuffle(data)
 # PCA variance coverage = 80 %
 # Using mixed data set
 
-data_nB = data
+data_nB = data  #Data with student id, label, img
+
 data_nB[:,2:] = stats.zscore(data[:,2:], axis=0)
+
 
 # nA = normalize After pca
 # nB = normalize Before pca
@@ -39,7 +41,8 @@ pca_nB = PCA()
 pca_nA.fit(data[:,2:])
 pca_nB.fit(data_nB[:,2:])
 
-# Calculate cummulative variance ratios
+
+## Calculate cummulative variance ratios
 pca_nA_varRatio = pca_nA.explained_variance_ / np.sum(pca_nA.explained_variance_)
 pca_nB_varRatio = pca_nB.explained_variance_ / np.sum(pca_nB.explained_variance_)
 
@@ -126,3 +129,4 @@ axs[1].legend()
 axs[1].grid(True)
 
 plt.show()
+

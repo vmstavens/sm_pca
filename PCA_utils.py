@@ -128,3 +128,11 @@ def split_data_crossValidation(data, test_idx, splt_cnt=10):
     l_train = np.delete(labels, range(fst_idx, lst_idx))
 
     return d_train, l_train, d_test, l_test
+
+
+def zeroCenter(dataset):
+  mean = dataset.mean()
+  std = dataset.std()
+  dataset = dataset - mean
+  dataset = dataset/std
+  return dataset
