@@ -155,7 +155,7 @@ def visualize_images(data, rows, cols, fig_title):
         title = "Ground truth: " + str(data[i-1,1]) + " | " + "student ID: " + str(data[i-1,0])
         ax.set_title(title, color="blue", fontweight="bold")
         plt.imshow(data[i-1, 2:].reshape(img_rows, img_cols), cmap="gray")
-        plt.tight_layout(rect=[0, 0, 1, 1.5])
+        plt.tight_layout()
     plt.show()
     
 

@@ -12,8 +12,8 @@ def blur_data(img, sigma):
     img = np.delete(img, 0, axis=0)
     img = np.delete(img, 0, axis=0)
     img = img.reshape(IMG_ROWS, IMG_COLS)
-    gaussian_filter(img, sigma=sigma)
-    img.reshape(IMG_ROWS * IMG_COLS)
+    img = gaussian_filter(img, sigma=sigma)
+    img = img.reshape(IMG_ROWS * IMG_COLS)
     img = np.insert(img, 0, label, axis=0)
     img = np.insert(img, 0 , student_id, axis=0)
     return img
