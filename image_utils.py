@@ -9,8 +9,8 @@ from constants import *
 def blur_data(img, sigma):
     student_id = img[0]
     label = img[1]
-    img = np.delete(img, 0, 1)
-    img = np.delete(img, 0, 1)
+    img = np.delete(img, 0, axis=0)
+    img = np.delete(img, 0, axis=0)
     img = img.reshape(IMG_ROWS, IMG_COLS)
     gaussian_filter(img, sigma=sigma)
     img.reshape(IMG_ROWS * IMG_COLS)

@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 import PCA_utils
 from scipy.ndimage import gaussian_filter
+import image_utils
 
 
 """
@@ -27,12 +28,17 @@ random_indices = np.random.choice(data.shape[0], size=3, replace=False)
 images = data[random_indices, :]
 #PCA_utils.visualize_images(images, 1, 3, "Original data")
 
-
-test = images.reshape(3,23,23)
-print(test.shape)
-
+blurred_images = np.array([[]])
 
 #Creating gaussian filter, smoothing images and visualizing images
+for i in range(images.shape[0]):
+    #np.append(blurred_images, image_utils.blur_data(images[i], sigma=1))
+    blurred_images = np.vstack(image_utils.blur_data(images[i], sigma=1))
+    print(blurred_images.shape)
+
+
+#PCA_utils.visualize_images(blurred_images, 1, 3, "Blurred images with sigma=1")
+
 # blurred_images = np.array([[]])
 # for i in range(images.shape[0]):
 #     np.append(blurred_images, gaussian_filter(images[i], sigma=1), axis=0)
