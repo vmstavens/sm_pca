@@ -5,6 +5,8 @@ from sklearn.metrics import confusion_matrix, plot_confusion_matrix
 from sklearn.model_selection import train_test_split
 import time
 
+
+#Comment from THOMAS. I do not understand how the two visualization functions work regards to len(data_pts) 
 def visualize_data(data_pts : np.ndarray, resx, resy, rows, cols):
     
     if len(data_pts) != rows * cols:
@@ -136,3 +138,25 @@ def zeroCenter(dataset):
   dataset = dataset - mean
   dataset = dataset/std
   return dataset
+
+
+  #Function that can take in multiple images that are flattened as row vectors. The function is able to handle two dimensional arrays where each row corresponds to 1 image. 
+  #The function is build for the data used in statistical machine learning and hence the two first entries of each row corresponds to the student ID and label of the data respectivly
+  #rows and colums corresponds to the number of plotting rows and columns so rows = 3 and cols = 3 will results in 9 imageas being plotted with 3 images for each row with a total 
+  #of 3 rows
+def visualize_images(data, rows, cols, fig_title):
+    fig = plt.figure(figsize=(10,10))
+    fig.suptitle(fig_title, fontsize=16, color="blue", fontweight="bold")
+    number_of_img = data.shape[0]
+    img_rows = int(np.sqrt(len(data[0,2:])))
+    img_cols = img_rows
+    for i in range(1, number_of_img + 1):
+        ax = fig.add_subplot(rows, cols, i)
+        title = "Ground truth: " + str(data[i-1,1]) + " | " + "student ID: " + str(data[i-1,0])
+        ax.set_title(title, color="blue", fontweight="bold")
+        plt.imshow(data[i-1, 2:].reshape(img_rows, img_cols), cmap="gray")
+        plt.tight_layout(rect=[0, 0, 1, 1.5])
+    plt.show()
+    
+
+
