@@ -85,6 +85,7 @@ plt.show()
 #####################################
 # Transform data into PCA space
 d_train_all_pca = pca_all.transform(d_train_all)
+print("SHAPE OF PCA TRAIN: ", d_train_all.shape)
 d_test_all_pca = pca_all.transform(d_test_all)
 
 d_train_dis_pca = pca_dis.transform(d_train_dis)
@@ -115,6 +116,7 @@ if PERFORM_KNN:
 
     accuracy_dis  = np.ndarray((len(pcts), len(ks)))
     comp_time_dis = np.ndarray((len(pcts), len(ks)))
+
 
     print("Running for split students, evaluating on test data")
     for i, pct in enumerate(pcts):

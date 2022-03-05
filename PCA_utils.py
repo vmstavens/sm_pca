@@ -160,3 +160,4 @@ def visualize_images(data, rows, cols, fig_title):
     
 
 
+
