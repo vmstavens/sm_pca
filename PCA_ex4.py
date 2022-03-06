@@ -35,6 +35,7 @@ sub_titles = []
 for i in range(1, NUM_OF_DP_2_VIS + 1):
     sub_titles.append("pca " + str(i))
 
+
 # print 9 pcas
 # PCA_utils.visualize_generic(pcas, sqrt(NUM_OF_DP_2_VIS), sqrt(NUM_OF_DP_2_VIS), "PCAs", sub_titles)
 # print the 10'th pca
