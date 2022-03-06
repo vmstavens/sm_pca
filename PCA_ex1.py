@@ -24,7 +24,7 @@ Perform a PCA on the data for the "all persons in" and "disjunct" data set.
 4.  Interpret the results.
 """
 
-PERFORM_KNN = False
+PERFORM_KNN = True
 
 data_csv = pd.read_csv("data_proc.csv", header=None)
 data = pd.DataFrame.to_numpy(data_csv)

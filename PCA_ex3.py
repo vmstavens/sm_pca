@@ -31,7 +31,7 @@ np.random.shuffle(data)
 
 
 
-#Extracting random images from the data and visualizing thease
+#Extracting random images from the data and visualizing these
 random_indices = np.random.choice(data.shape[0], size=3, replace=False)
 random_images = data[random_indices, :]
 PCA_utils.visualize_images(random_images, 1, 3, "Original data")
