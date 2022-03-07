@@ -1,3 +1,4 @@
+from fileinput import filename
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import neighbors
@@ -158,9 +159,25 @@ def visualize_images(data, rows, cols, fig_title):
         ax.set_title(title, color="blue", fontweight="bold")
         plt.imshow(data[i-1, 2:].reshape(img_rows, img_cols), cmap="gray")
         plt.tight_layout()
+        plt.savefig()
+    plt.show()
+
+def visualize_images_save(data: np.ndarray, rows: int, cols: int, fig_title: str, file_name: str):
+    fig = plt.figure(figsize=(10,10))
+    fig.suptitle(fig_title, fontsize=16, color="blue", fontweight="bold")
+    number_of_img = data.shape[0]
+    img_rows = int(np.sqrt(len(data[0,2:])))
+    img_cols = img_rows
+    for i in range(1, number_of_img + 1):
+        ax = fig.add_subplot(rows, cols, i)
+        title = "Ground truth: " + str(data[i-1,1]) + " | " + "student ID: " + str(data[i-1,0])
+        ax.set_title(title, color="blue", fontweight="bold")
+        plt.imshow(data[i-1, 2:].reshape(img_rows, img_cols), cmap="gray")
+        plt.tight_layout()
+        plt.savefig(file_name)
     plt.show()
     
-def visualize_generic(data:np.ndarray, rows:int, cols:int, fig_title:str, sub_titles: List) -> None:
+def visualize_generic(data:np.ndarray, rows:int, cols:int, fig_title:str, sub_titles: List, img_name="img.png") -> None:
     """
     data : np.ndarray -> list of images or a single image
     rows: int -> the number of rows in the image showing matrix, if only one image rows = 1
@@ -180,6 +197,7 @@ def visualize_generic(data:np.ndarray, rows:int, cols:int, fig_title:str, sub_ti
         plt.title(fig_title, color="blue", fontweight="bold")
         plt.imshow(data.reshape(img_rows, img_cols), cmap="gray")
         plt.tight_layout()
+        plt.savefig(img_name)
         plt.show()
         return
 
@@ -194,5 +212,6 @@ def visualize_generic(data:np.ndarray, rows:int, cols:int, fig_title:str, sub_ti
         ax.set_title(sub_titles[i-1], color="blue", fontweight="bold")
         plt.imshow(data[i-1].reshape(img_rows, img_cols), cmap="gray")
         plt.tight_layout()
+    plt.savefig(img_name)
     plt.show()
 
