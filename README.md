@@ -37,7 +37,7 @@ jupyter nbconvert --to python ex1.ipynb
 ```
 Alternatively the notebooks can be opened and executed separately using texteditors like [Visual Studio Code](https://code.visualstudio.com/).
 
-The Python version applied in this project is `python3`. You can check your python version in the following manner
+The Python version applied in this project is `Python 3.8.10`. You can check your python version in the following manner
 ```bash
 python3 --version
 ```
@@ -57,7 +57,6 @@ To install these the following command can be run using the `requirements.txt` f
 ```bash
 pip install -r requirements.txt
 ```
-
 
 ## Repository Structure
 
