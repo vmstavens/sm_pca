@@ -69,7 +69,7 @@ Each of these have their own data (`data`) and image (`img`) directory, along wi
 This can be seen in the structure below
 
 <details>
-<summary><strong>Structure<code></code></strong></summary></br>
+<summary><strong>Structure</strong></summary></br>
 
 ```
 .
