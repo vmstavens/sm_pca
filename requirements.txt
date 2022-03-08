@@ -1,0 +1,7 @@
+numpy
+pandas
+matplotlib
+sklearn 
+time
+cv2
+scipy  
