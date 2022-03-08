@@ -46,17 +46,16 @@ python3 --version
 
 The python dependencies for this project 
 
-- `numpy`
-- `pandas`
-- `matplotlib`
-- `sklearn` 
-- `time`
-- `cv2`
-- `scipy`  
+- `numpy==1.22.2`
+- `pandas==1.4.1`
+- `matplotlib==3.1.2`
+- `sklearn==0.0` 
+- `cv2==4.5.5.62`
+- `scipy==1.7.3`  
 
 To install these the following command can be run using the `requirements.txt` file in the root folder
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 
