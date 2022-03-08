@@ -20,7 +20,7 @@
 * [Setup](#setup)
 	+ [Download Data](#download-data)
 	+ [Run Exercise Solutions](#run-exercise-solutions)
-* [RepositoryStructure](#repository-structure)
+* [Repository Structure](#repository-structure)
 * [Acknowledgments](#acknowledgments)
 
 ## Setup
