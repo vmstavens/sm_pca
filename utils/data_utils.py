@@ -1,5 +1,6 @@
 from typing import Tuple
 import numpy as np
+from typing import List
 
 
 def split_data_all(data:np.ndarray, train_pct:float) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
@@ -19,6 +20,9 @@ def split_data_all(data:np.ndarray, train_pct:float) -> Tuple[np.ndarray, np.nda
     d_test = np.delete(d_test, [0,1], 1)
 
     return d_train, l_train, d_test, l_test
+
+def hest():
+    print("HEJ")
 
 
 def split_data_disjunct(data:np.ndarray, train_pct:float) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
@@ -61,3 +65,22 @@ def split_data_crossValidation(data:np.ndarray, test_idx:int, splt_cnt:int=10) -
     l_train = np.delete(labels, range(fst_idx, lst_idx))
 
     return d_train, l_train, d_test, l_test
+
+
+
+def get_data_student_cifers(data: np.array, student_id: int, cifers: List, instances: int):
+    """
+    data: np.ndarray -> image data incl. studnet id (col 0) and labels (col 1)
+    student_id: int -> the student id of the student you want the data from 
+    cifers: List -> A list of the cifers of interrest, to extract from the data of the student. EX: [0,4,7] will give you cifers 0, 4, 7
+    instances: int -> how many instances of each cifer to return 
+    """
+
+    data_cifers = []
+    data_student = data[data[:,0] == student_id]
+    for c in cifers:
+        data_cifers.extend(data_student[data_student[:,1] == c][0:instances])
+    data_cifers = np.array(data_cifers)
+    return data_cifers
+
+
