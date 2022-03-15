@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from typing import List
 
-def visualize_generic(data:np.ndarray, rows:int, cols:int, fig_title:str, sub_titles: List, img_name="img.png") -> None:
+def visualize_generic(data:np.ndarray, rows:int, cols:int, fig_title:str, sub_titles: List, img_name="img.png", save_img:bool = False) -> None:
     """
     data : np.ndarray -> list of images or a single image
     rows: int -> the number of rows in the image showing matrix, if only one image rows = 1
@@ -38,5 +38,6 @@ def visualize_generic(data:np.ndarray, rows:int, cols:int, fig_title:str, sub_ti
         ax.set_title(sub_titles[i-1], color="blue", fontweight="bold")
         plt.imshow(data[i-1].reshape(img_rows, img_cols), cmap="gray")
         plt.tight_layout()
-    plt.savefig(img_name)
+    if save_img == True:
+        plt.savefig(img_name)
     plt.show()
